@@ -11,9 +11,9 @@ namespace Fonctions
     {
         static void Main(string[] args)
         {
+            EstUtilisateurValide2("bob", 20);
             string nom = "Fred";
             AfficherMessageTest(nom);
-
 
 
             double valeurM = DemanderDouble("m", out int nbErreurM);
@@ -62,6 +62,52 @@ namespace Fonctions
                 nombreErreurs++;
             }
             return valeur;
+        }
+
+        // Valide si : nom > 5 caractères et que majeur
+        private static bool EstUtilisateurValide(string nom, int age)
+        {
+            if (nom.Length > 5 )
+            {
+                if (age >= 18)
+                {
+                    Console.WriteLine("Valide");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Erreur: Erreur");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Erreur: le nom est trop court");
+                return false;
+            }
+        }
+
+        // Version avec: condition de garde
+        private static bool EstUtilisateurValide2(string nom, int age)
+        {
+            if(nom.Length<5)
+            {
+                Console.WriteLine("Erreur : nom trop court");
+                return false;
+            }
+
+            // Forcement si je suis ici, c'est que nom = valide
+
+            if (age<18)
+            {
+                Console.WriteLine("Erreur : mineur");
+                return false;
+            }
+            // Forcément, ici age = valide
+
+            // Ici tout est valide:
+            Console.WriteLine("Valide");
+            return true;
         }
     }
 }

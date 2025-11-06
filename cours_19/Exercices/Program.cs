@@ -14,6 +14,7 @@ namespace Exercices
             double premierNombre = VerifierLesNombres();
 
             double deuxiemeNombre = VerifierLesNombres();
+
             Console.WriteLine();
             Console.WriteLine($"Minimum = {TrouverMinimum(premierNombre, deuxiemeNombre)}");
             Console.WriteLine($"Maximum = {TrouverMaximum(premierNombre, deuxiemeNombre)}\n");
